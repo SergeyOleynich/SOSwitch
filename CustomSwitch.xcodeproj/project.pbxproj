@@ -17,6 +17,7 @@
 		94C45E921B74D57B00EC9D40 /* 34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94C45E911B74D57B00EC9D40 /* 34.jpg */; };
 		94F589E91B79FBE60099BA3A /* SOSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F589E81B79FBE60099BA3A /* SOSwitch.m */; };
 		94F589EC1B7A21F10099BA3A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 94F589EB1B7A21F10099BA3A /* .gitignore */; };
+		94F589EE1B7A28970099BA3A /* 45.gif in Resources */ = {isa = PBXBuildFile; fileRef = 94F589ED1B7A28970099BA3A /* 45.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		94F589E71B79FBE60099BA3A /* SOSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSwitch.h; sourceTree = "<group>"; };
 		94F589E81B79FBE60099BA3A /* SOSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSwitch.m; sourceTree = "<group>"; };
 		94F589EB1B7A21F10099BA3A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		94F589ED1B7A28970099BA3A /* 45.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 45.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		94C45E5C1B74D14E00EC9D40 = {
 			isa = PBXGroup;
 			children = (
+				94F589ED1B7A28970099BA3A /* 45.gif */,
 				94F589EB1B7A21F10099BA3A /* .gitignore */,
 				94C45E671B74D14E00EC9D40 /* CustomSwitch */,
 				94C45E811B74D14E00EC9D40 /* CustomSwitchTests */,
@@ -215,6 +218,7 @@
 				94C45E741B74D14E00EC9D40 /* Main.storyboard in Resources */,
 				94C45E791B74D14E00EC9D40 /* LaunchScreen.xib in Resources */,
 				94C45E761B74D14E00EC9D40 /* Images.xcassets in Resources */,
+				94F589EE1B7A28970099BA3A /* 45.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
