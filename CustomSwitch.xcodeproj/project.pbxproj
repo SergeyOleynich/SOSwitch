@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94A59B411B7BA0300073ABDB /* both-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A59B3F1B7BA0300073ABDB /* both-off.png */; };
+		94A59B421B7BA0300073ABDB /* both-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A59B401B7BA0300073ABDB /* both-on.png */; };
+		94A59B441B7BA3830073ABDB /* 46.gif in Resources */ = {isa = PBXBuildFile; fileRef = 94A59B431B7BA3830073ABDB /* 46.gif */; };
 		94C45E6B1B74D14E00EC9D40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C45E6A1B74D14E00EC9D40 /* main.m */; };
 		94C45E6E1B74D14E00EC9D40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C45E6D1B74D14E00EC9D40 /* AppDelegate.m */; };
 		94C45E711B74D14E00EC9D40 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C45E701B74D14E00EC9D40 /* ViewController.m */; };
@@ -14,7 +17,6 @@
 		94C45E761B74D14E00EC9D40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C45E751B74D14E00EC9D40 /* Images.xcassets */; };
 		94C45E791B74D14E00EC9D40 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C45E771B74D14E00EC9D40 /* LaunchScreen.xib */; };
 		94C45E851B74D14E00EC9D40 /* CustomSwitchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C45E841B74D14E00EC9D40 /* CustomSwitchTests.m */; };
-		94C45E921B74D57B00EC9D40 /* 34.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94C45E911B74D57B00EC9D40 /* 34.jpg */; };
 		94F589E91B79FBE60099BA3A /* SOSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F589E81B79FBE60099BA3A /* SOSwitch.m */; };
 		94F589EC1B7A21F10099BA3A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 94F589EB1B7A21F10099BA3A /* .gitignore */; };
 		94F589EE1B7A28970099BA3A /* 45.gif in Resources */ = {isa = PBXBuildFile; fileRef = 94F589ED1B7A28970099BA3A /* 45.gif */; };
@@ -31,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94A59B3F1B7BA0300073ABDB /* both-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "both-off.png"; sourceTree = "<group>"; };
+		94A59B401B7BA0300073ABDB /* both-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "both-on.png"; sourceTree = "<group>"; };
+		94A59B431B7BA3830073ABDB /* 46.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 46.gif; sourceTree = "<group>"; };
 		94C45E651B74D14E00EC9D40 /* CustomSwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C45E691B74D14E00EC9D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C45E6A1B74D14E00EC9D40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,7 +49,6 @@
 		94C45E7E1B74D14E00EC9D40 /* CustomSwitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomSwitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C45E831B74D14E00EC9D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94C45E841B74D14E00EC9D40 /* CustomSwitchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSwitchTests.m; sourceTree = "<group>"; };
-		94C45E911B74D57B00EC9D40 /* 34.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 34.jpg; sourceTree = "<group>"; };
 		94F589E71B79FBE60099BA3A /* SOSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOSwitch.h; sourceTree = "<group>"; };
 		94F589E81B79FBE60099BA3A /* SOSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOSwitch.m; sourceTree = "<group>"; };
 		94F589EB1B7A21F10099BA3A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -72,7 +76,10 @@
 		94C45E5C1B74D14E00EC9D40 = {
 			isa = PBXGroup;
 			children = (
+				94A59B3F1B7BA0300073ABDB /* both-off.png */,
+				94A59B401B7BA0300073ABDB /* both-on.png */,
 				94F589ED1B7A28970099BA3A /* 45.gif */,
+				94A59B431B7BA3830073ABDB /* 46.gif */,
 				94F589EB1B7A21F10099BA3A /* .gitignore */,
 				94C45E671B74D14E00EC9D40 /* CustomSwitch */,
 				94C45E811B74D14E00EC9D40 /* CustomSwitchTests */,
@@ -92,7 +99,6 @@
 		94C45E671B74D14E00EC9D40 /* CustomSwitch */ = {
 			isa = PBXGroup;
 			children = (
-				94C45E911B74D57B00EC9D40 /* 34.jpg */,
 				94C45E6C1B74D14E00EC9D40 /* AppDelegate.h */,
 				94C45E6D1B74D14E00EC9D40 /* AppDelegate.m */,
 				94C45E6F1B74D14E00EC9D40 /* ViewController.h */,
@@ -214,9 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F589EC1B7A21F10099BA3A /* .gitignore in Resources */,
-				94C45E921B74D57B00EC9D40 /* 34.jpg in Resources */,
 				94C45E741B74D14E00EC9D40 /* Main.storyboard in Resources */,
+				94A59B411B7BA0300073ABDB /* both-off.png in Resources */,
 				94C45E791B74D14E00EC9D40 /* LaunchScreen.xib in Resources */,
+				94A59B441B7BA3830073ABDB /* 46.gif in Resources */,
+				94A59B421B7BA0300073ABDB /* both-on.png in Resources */,
 				94C45E761B74D14E00EC9D40 /* Images.xcassets in Resources */,
 				94F589EE1B7A28970099BA3A /* 45.gif in Resources */,
 			);

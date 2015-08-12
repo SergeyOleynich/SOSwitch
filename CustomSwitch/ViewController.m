@@ -20,10 +20,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
         
-    SOSwitch *cSwitch = [[SOSwitch alloc] initWithFrame:CGRectMake(20, 250, 150, 50)];
-    cSwitch.borderColor = [UIColor redColor];
+    SOSwitch *cSwitch = [[SOSwitch alloc] initWithFrame:CGRectMake(20, 250, 322/2, 118/2)];
+    //cSwitch.borderColor = [UIColor redColor];
+    [cSwitch setOnImage:[UIImage imageNamed:@"both-on.png"]];
+    [cSwitch setOffImage:[UIImage imageNamed:@"both-off.png"]];
     [cSwitch addTarget:self action:@selector(change:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:cSwitch];
+    
+    UIImage *image = [UIImage imageNamed:@"both-off.png"];
+    NSLog(@"%@", NSStringFromCGSize(image.size));
+    
+    self.view.backgroundColor = [UIColor yellowColor];
     
 }
 

@@ -37,13 +37,14 @@
         self.backgroundColor = [UIColor clearColor];
         
         self.layer.cornerRadius = lrintf(CGRectGetHeight(self.bounds) / 4);
-        self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        self.layer.borderColor = [UIColor colorWithRed:181 / 255.f green:186 / 255.f blue:191 / 255.f alpha:1.f].CGColor;
         self.layer.borderWidth = 2.f;
+        self.clipsToBounds = YES;
         
         [self addSubview:self.backgroungImage];
         
-        _knob = [[UIView alloc] initWithFrame:CGRectMake(0, 2, CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) - 2*2)];
-        self.knob.backgroundColor = [UIColor yellowColor];
+        _knob = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) - 0*2)];
+        self.knob.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:181 / 255.f green:186 / 255.f blue:191 / 255.f alpha:1.f];
         [self addSubview:self.knob];
 
         [self.knob addSubview:self.movingImage];
@@ -76,7 +77,6 @@
 - (UIImageView *)movingImage {
     if (!_movingImage) {
         _movingImage = [[UIImageView alloc] init];
-        [_movingImage setImage:[UIImage imageNamed:@"34.jpg"]];
         _movingImage.frame = self.bounds;
         [_movingImage setContentMode:UIViewContentModeScaleAspectFill];
     }
