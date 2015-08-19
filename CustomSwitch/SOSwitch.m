@@ -43,7 +43,13 @@
         
         [self addSubview:self.backgroungImage];
         
-        _knob = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) / 2, CGRectGetHeight(self.bounds) - 0*2)];
+        while (![self checkForHoleNumber:CGRectGetWidth(self.bounds) / 3]) {
+            CGRect temp = self.bounds;
+            temp.size.width ++;
+            self.bounds = temp;
+        }
+        
+        _knob = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds) / 3, CGRectGetHeight(self.bounds) - 0*2)];
         self.knob.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:181 / 255.f green:186 / 255.f blue:191 / 255.f alpha:1.f];
         [self addSubview:self.knob];
 
@@ -62,6 +68,11 @@
     }
     return self;
 }
+
+- (BOOL)checkForHoleNumber:(CGFloat)size {
+    return size == floorf(size);
+}
+
 
 - (void)dealloc {
     _movingImage = nil;
@@ -130,11 +141,11 @@
     
     CGPoint touchPoint = [recognizer locationInView:self];
     
-    if (touchPoint.x < CGRectGetWidth(self.frame) / 2) {
+    if (touchPoint.x < CGRectGetWidth(self.frame) / 3) {
         
          [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-             recognizer.view.center = CGPointMake(CGRectGetWidth(self.frame) - CGRectGetWidth(recognizer.view.frame) / 2, recognizer.view.center.y);
-             self.movingImage.center = CGPointMake (0, self.movingImage.center.y);
+             recognizer.view.center = CGPointMake(CGRectGetMidX(self.bounds), recognizer.view.center.y);
+             self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(recognizer.view.frame), self.movingImage.center.y);
          } completion:^(BOOL finished) {
              _on = YES;
 #pragma clang diagnostic push
@@ -143,11 +154,24 @@
 #pragma clang diagnostic pop
          }];
         
+    } else if (touchPoint.x > CGRectGetWidth(self.frame) / 3 && touchPoint.x < 2 * CGRectGetWidth(self.frame) / 3) {
+        
+        [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            recognizer.view.center = CGPointMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(recognizer.view.frame) / 2, recognizer.view.center.y);
+            self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(recognizer.view.frame), self.movingImage.center.y);
+        } completion:^(BOOL finished) {
+            _on = NO;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [_target performSelector:_selector withObject:self];
+#pragma clang diagnostic pop
+        }];
+        
     } else {
         
         [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             recognizer.view.center = CGPointMake(CGRectGetWidth(recognizer.view.frame) / 2, recognizer.view.center.y);
-            self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds), self.movingImage.center.y);
+            self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(recognizer.view.frame), self.movingImage.center.y);
         } completion:^(BOOL finished) {
             _on = NO;
 #pragma clang diagnostic push
@@ -174,7 +198,7 @@
     
     if (view.center.x >= CGRectGetWidth(self.frame) - CGRectGetWidth(view.frame) / 2) {
         view.center = CGPointMake(CGRectGetWidth(self.frame) - CGRectGetWidth(recognizer.view.frame) / 2,  self.movingImage.center.y);
-        self.movingImage.center = CGPointMake (0, self.movingImage.center.y);
+        self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(view.frame), self.movingImage.center.y);
         _on = YES;
         if (recognizer.state == UIGestureRecognizerStateEnded) {
             if (_target) {
@@ -187,9 +211,9 @@
         return ;
     }
     
-    if (view.center.x <= CGRectGetWidth(view.frame) / 2) {
+    if (view.center.x <= CGRectGetWidth(view.frame) / 3) {
         view.center = CGPointMake(CGRectGetWidth(view.frame) / 2,  self.movingImage.center.y);
-        self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds), self.movingImage.center.y);
+        self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(view.frame), self.movingImage.center.y);
         _on = NO;
         if (recognizer.state == UIGestureRecognizerStateEnded) {
 #pragma clang diagnostic push
@@ -201,10 +225,13 @@
     }
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        if (view.center.x <= CGRectGetMidX(self.bounds)) {
+        
+        if (view.center.x < CGRectGetWidth(self.frame) / 3) {
+            
+            //начало
             [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                view.center = CGPointMake(CGRectGetWidth(view.frame) / 2,  self.movingImage.center.y);
-                self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds), self.movingImage.center.y);
+                recognizer.view.center = CGPointMake(CGRectGetWidth(recognizer.view.frame) / 2, recognizer.view.center.y);
+                self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(recognizer.view.frame), self.movingImage.center.y);
             } completion:^(BOOL finished) {
                 _on = NO;
 #pragma clang diagnostic push
@@ -212,10 +239,14 @@
                 [_target performSelector:_selector withObject:self];
 #pragma clang diagnostic pop
             }];
-        } else {
+
+            
+        } else if (view.center.x > CGRectGetWidth(self.frame) / 3 && view.center.x < 2 * CGRectGetWidth(self.frame) / 3) {
+            
+            //середина
             [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                view.center = CGPointMake(CGRectGetWidth(self.frame) - CGRectGetWidth(recognizer.view.frame) / 2,  self.movingImage.center.y);
-                self.movingImage.center = CGPointMake (0, self.movingImage.center.y);
+                recognizer.view.center = CGPointMake(CGRectGetMidX(self.bounds), recognizer.view.center.y);
+                self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(recognizer.view.frame), self.movingImage.center.y);
             } completion:^(BOOL finished) {
                 _on = YES;
 #pragma clang diagnostic push
@@ -223,7 +254,25 @@
                 [_target performSelector:_selector withObject:self];
 #pragma clang diagnostic pop
             }];
+            
+        } else {
+            
+            //послед
+            [UIView animateWithDuration:0.33 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                recognizer.view.center = CGPointMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(recognizer.view.frame) / 2, recognizer.view.center.y);
+                self.movingImage.center = CGPointMake (CGRectGetMidX(self.bounds) - CGRectGetMinX(recognizer.view.frame), self.movingImage.center.y);
+            } completion:^(BOOL finished) {
+                _on = NO;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [_target performSelector:_selector withObject:self];
+#pragma clang diagnostic pop
+            }];
         }
+        
+        return ;
+        
+        
     }
     
 }
